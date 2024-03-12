@@ -217,5 +217,56 @@ public class LessionDBContext extends DBContext<Lession> {
         }
         return students;
     }
+       public void takeAttendances(int leid, ArrayList<Attendence> atts) {
+        try {
+            connection.setAutoCommit(false);
+            String sql_remove_atts = "DELETE Attendence WHERE leid = ?";
+            PreparedStatement stm_remove_atts = connection.prepareStatement(sql_remove_atts);
+            stm_remove_atts.setInt(1, leid);
+            stm_remove_atts.executeUpdate();
+
+            for (Attendence att : atts) {
+                String sql_insert_att = "INSERT INTO [Attendence]\n"
+                        + "           ([leid]\n"
+                        + "           ,[sid]\n"
+                        + "           ,[description]\n"
+                        + "           ,[isPresent]\n"
+                        + "           ,[capturedtime])\n"
+                        + "     VALUES\n"
+                        + "           (?\n"
+                        + "           ,?\n"
+                        + "           ,?\n"
+                        + "           ,?\n"
+                        + "           ,GETDATE())";
+                PreparedStatement stm_insert_att = connection.prepareStatement(sql_insert_att);
+                stm_insert_att.setInt(1, leid);
+                stm_insert_att.setString(2, att.getStudent().getId());
+                stm_insert_att.setString(3, att.getDescription());
+                stm_insert_att.setBoolean(4, att.isPresent());
+                stm_insert_att.executeUpdate();
+            }
+
+            String sql_update_lession = "UPDATE Lession SET isAttended = 1 WHERE leid =?";
+            PreparedStatement stm_update_lession = connection.prepareStatement(sql_update_lession);
+            stm_update_lession.setInt(1, leid);
+            stm_update_lession.executeUpdate();
+
+            connection.commit();
+        } catch (SQLException ex) {
+            Logger.getLogger(LessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                connection.rollback();
+            } catch (SQLException ex1) {
+                Logger.getLogger(LessionDBContext.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(LessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
 
 }

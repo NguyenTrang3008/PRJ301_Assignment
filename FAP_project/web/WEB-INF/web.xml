@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>Controller.authentication.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BaseRequiredAuthenticationController</servlet-name>
+        <servlet-class>Controller.authentication.BaseRequiredAuthenticationController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TimeTableController</servlet-name>
+        <servlet-class>Controller.lecturer.TimeTableController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TimetableController</servlet-name>
+        <servlet-class>Controller.student.TimetableController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TimeTableStudentController</servlet-name>
+        <servlet-class>Controller.student.TimeTableStudentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BaseRequiredAuthenticationController</servlet-name>
+        <url-pattern>/BaseRequiredAuthenticationController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TimeTableController</servlet-name>
+        <url-pattern>/timetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TimeTableStudentController</servlet-name>
+        <url-pattern>/timetablestudent</url-pattern>
+    </servlet-mapping>
+</web-app>

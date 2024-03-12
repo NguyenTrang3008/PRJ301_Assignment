@@ -154,6 +154,8 @@ public class LessionDBContext extends DBContext<Lession> {
 
     }
     public ArrayList<Attendence> getAttendencesByLession(int leid) {
+       ArrayList<Attendence> atts = new ArrayList<>();
+        try {
         String sql = "SELECT \n"
                     + "s.sid,s.sname,\n"
                     + "a.aid,a.description,a.isPresent,a.capturedtime\n"
@@ -162,7 +164,33 @@ public class LessionDBContext extends DBContext<Lession> {
                     + "						INNER JOIN Lession les ON les.gid = g.gid\n"
                     + "						LEFT JOIN Attendence a ON a.leid = les.leid AND a.sid = s.sid\n"
                     + "WHERE les.leid = ?";
-        return null;
+        PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, leid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Attendence a = new Attendence();
+                Student s = new Student();
+                Lession les = new Lession();
+                s.setId(rs.getString("sid"));
+                s.setName(rs.getString("sname"));
+                a.setStudent(s);
+
+                les.setId(leid);
+                a.setLession(les);
+
+                a.setId(rs.getInt("aid"));
+                if (a.getId() != 0) {
+                    a.setDescription(rs.getString("description"));
+                    a.setPresent(rs.getBoolean("isPresent"));
+                    a.setTime(rs.getTimestamp("capturedtime"));
+                }
+                atts.add(a);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return atts;
         
     }
 

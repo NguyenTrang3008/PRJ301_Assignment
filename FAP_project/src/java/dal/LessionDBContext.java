@@ -154,7 +154,14 @@ public class LessionDBContext extends DBContext<Lession> {
 
     }
     public ArrayList<Attendence> getAttendencesByLession(int leid) {
-        
+        String sql = "SELECT \n"
+                    + "s.sid,s.sname,\n"
+                    + "a.aid,a.description,a.isPresent,a.capturedtime\n"
+                    + "FROM Student s INNER JOIN Enrollment e ON s.sid = e.sid\n"
+                    + "						INNER JOIN StudentGroup g ON g.gid = e.gid\n"
+                    + "						INNER JOIN Lession les ON les.gid = g.gid\n"
+                    + "						LEFT JOIN Attendence a ON a.leid = les.leid AND a.sid = s.sid\n"
+                    + "WHERE les.leid = ?";
         return null;
         
     }

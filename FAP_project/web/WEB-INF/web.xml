@@ -20,6 +20,10 @@
         <servlet-name>TimeTableStudentController</servlet-name>
         <servlet-class>Controller.student.TimeTableStudentController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AttendanceTakingController</servlet-name>
+        <servlet-class>Controller.lecturer.AttendanceTakingController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -35,5 +39,9 @@
     <servlet-mapping>
         <servlet-name>TimeTableStudentController</servlet-name>
         <url-pattern>/timetablestudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AttendanceTakingController</servlet-name>
+        <url-pattern>/att</url-pattern>
     </servlet-mapping>
 </web-app>

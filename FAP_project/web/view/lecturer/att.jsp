@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="att" method="POST">
+        <form action="" method="POST">
             <input type="hidden" name="id" value="${param.id}" />
             <table border="1px">
                 <tr>
@@ -42,5 +42,6 @@
                 </c:forEach>
             </table>
             <input type="submit" value="Save"/>
+            </form>
     </body>
 </html>

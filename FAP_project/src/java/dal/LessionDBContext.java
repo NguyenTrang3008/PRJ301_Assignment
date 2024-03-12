@@ -4,6 +4,7 @@
  */
 package dal;
 
+import entity.Attendence;
 import entity.Enrollment;
 import entity.Lession;
 import java.util.ArrayList;
@@ -151,6 +152,11 @@ public class LessionDBContext extends DBContext<Lession> {
 
         return lessions;
 
+    }
+    public ArrayList<Attendence> getAttendencesByLession(int leid) {
+        
+        return null;
+        
     }
 
 }

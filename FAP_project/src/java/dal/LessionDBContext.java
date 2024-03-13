@@ -197,7 +197,7 @@ public class LessionDBContext extends DBContext<Lession> {
         ArrayList<Student> students = new ArrayList<>();
         try {
             String sql = "SELECT \n"
-                    + "s.sid,s.sname\n"
+                + "s.sid,s.sname\n"
                     + "FROM Student s INNER JOIN Enrollment e ON s.sid = e.sid\n"
                     + "						INNER JOIN StudentGroup g ON g.gid = e.gid\n"
                     + "						INNER JOIN Lession les ON les.gid = g.gid\n"

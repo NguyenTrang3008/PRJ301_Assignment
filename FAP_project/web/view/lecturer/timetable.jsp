@@ -19,7 +19,7 @@
     </style>
     </head>
     <body>
-        <form action="" method="GET">
+        <form action="timetable" method="GET">
             <input type="hidden" value="${param.id}" name="id"/>
             From: <input type="date" name="from" value="${requestScope.from}"/> -
             <input type="date" name="to" value="${requestScope.to}"/>

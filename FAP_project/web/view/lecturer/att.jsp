@@ -3,7 +3,7 @@
     Created on : Mar 13, 2024, 1:50:54 AM
     Author     : Dell
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="" method="POST">
+        <form action="att" method="POST">
             <input type="hidden" name="id" value="${param.id}" />
             <table border="1px">
                 <tr>
@@ -25,6 +25,7 @@
                 <c:forEach items="${requestScope.atts}" var="a">
                 <tr>
                     <td>${a.student.id}</td>
+                    
                     <td>${a.student.name}</td>
                     <td>
                         <input type="radio" 

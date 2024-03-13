@@ -10,21 +10,27 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            .blue-row {
+                background-color: #7590DA;
+                color: white; /* Optional: Set text color to white for better visibility */
+            }
+        </style>
     </head>
     <body>
         <form action="" method="GET">
-    <input type="hidden" value="${param.id}" name="id"/>
-    From: <input type="date" name="from" value="${requestScope.from}"/> -
-    <input type="date" name="to" value="${requestScope.to}"/>
-    <input type="submit" value="View"/>
-</form>
-<table border="1px">
-    <tr>
-        <td></td>
-        <c:forEach items="${requestScope.dates}" var="d">
-            <td>
-                (<fmt:formatDate pattern="E" value="${d}" />)
-                ${d}
+            <input type="hidden" value="${param.id}" name="id"/>
+            
+            
+        </form>
+        <table border="1px">
+            <tr class ="blue-row">
+                <td>From: <input type="date" name="from" value="${requestScope.from}"/> -
+            <input type="date" name="to" value="${requestScope.to}"/><input type="submit" value="View"/></td>
+                <c:forEach items="${requestScope.dates}" var="d">
+                    <td>
+                        (<fmt:formatDate pattern="E" value="${d}" />)
+                        ${d}
             </td>
         </c:forEach>
     </tr>
@@ -35,7 +41,7 @@
                 <td>
                     <c:forEach items="${requestScope.lessions}" var="les">
                         <c:if test="${les.date eq d and les.slot.id eq slot.id}">
-                             ${les.group.subject.name}
+                            ${les.group.subject.name}
                             <a href="att?id=${les.id}">Take</a>
                         </c:if>
                     </c:forEach>
@@ -44,5 +50,5 @@
         </tr>
     </c:forEach>
 </table>
-    </body>
+</body>
 </html>

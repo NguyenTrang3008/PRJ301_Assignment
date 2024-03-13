@@ -12,28 +12,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
-        .blue-row {
-            background-color: blue;
-            color: white; /* Optional: Set text color to white for better visibility */
-        }
-    </style>
+            .blue-row {
+                background-color: #7590DA;
+                color: white; /* Optional: Set text color to white for better visibility */
+            }
+        </style>
     </head>
     <body>
         <form action="timetable" method="GET">
+            <h1>FPT University Academic Portal</h1> 
             <input type="hidden" value="${param.id}" name="id"/>
-            From: <input type="date" name="from" value="${requestScope.from}"/> -
-            <input type="date" name="to" value="${requestScope.to}"/>
-            <input type="submit" value="View"/>
+
+
         </form>
         <table border="1px">
             <tr class ="blue-row">
                 
-                <td></td>
-                <c:forEach items="${requestScope.dates}" var="d">
+                <td>From: <input type="date" name="from" value="${requestScope.from}"/> -
+                    <input type="date" name="to" value="${requestScope.to}"/><input type="submit" value="View"/></td>
+                    <c:forEach items="${requestScope.dates}" var="d">
                     <td>
-                (<fmt:formatDate pattern="E" value="${d}" />)
+                        (<fmt:formatDate pattern="E" value="${d}" />)
                         ${d}</td>
-                </c:forEach>
+                    </c:forEach>
             </tr>
             <c:forEach items="${requestScope.slots}" var="slot">
                 <tr>
@@ -46,7 +47,7 @@
                                     <a href="att?id=${les.id}">
                                         <c:if test="${les.attended}">Edit</c:if>
                                         <c:if test="${!les.attended}">Take</c:if>
-                                    </a>
+                                        </a>
                                 </c:if>
                             </c:forEach>
                         </td>

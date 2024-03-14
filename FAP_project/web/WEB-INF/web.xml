@@ -28,6 +28,10 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>Controller.authentication.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BaseController</servlet-name>
+        <servlet-class>Controller.authentication.authorization.BaseController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -51,5 +55,9 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BaseController</servlet-name>
+        <url-pattern>/BaseController</url-pattern>
     </servlet-mapping>
 </web-app>

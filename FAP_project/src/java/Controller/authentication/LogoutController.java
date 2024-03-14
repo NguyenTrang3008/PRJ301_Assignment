@@ -8,6 +8,7 @@ package Controller.authentication;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,20 +28,19 @@ public class LogoutController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LogoutController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LogoutController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        request.getSession().setAttribute("account", null);// User account information is removed from the session
+        //Does not store information
+        Cookie c_user = new Cookie("username", "");
+        Cookie c_pass = new Cookie("password", "");
+        //set time = 0 when expired and out browser
+        c_user.setMaxAge(-1);
+        c_pass.setMaxAge(-1);
+
+        response.addCookie(c_pass);
+        response.addCookie(c_user);
+        response.getWriter().println("logged out!");
         }
-    } 
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 

@@ -66,6 +66,7 @@ public class LoginController extends HttpServlet {
             
             Cookie c_user = new Cookie("username", username);
             Cookie c_pass = new Cookie("password", password);
+            //set time to expired = 3 days
             c_user.setMaxAge(3600*24*3);
             c_pass.setMaxAge(3600*24*3);
             response.addCookie(c_pass);

@@ -54,7 +54,7 @@
         }
         </style>
         
-        
+
     </head>
     <body>
         <form action="" method="POST">
@@ -72,21 +72,15 @@
             <label for="password">Password:</label>
             <input type="password" name="password" id="password">
         </div>
-         <div>
-            <label for="role">Role:</label>
-            <select name="role" id="role">
-                <option value="lecturer">Lecturer</option>
-                
-                <option value="student">Student</option>
-            </select>
-        </div>
+
         <div>
             <label></label>
             <input type="checkbox" name="remember" id="remember" value="remember">
             <label for="remember">Remember me</label>
         </div>
         <div>
-            <input type="submit" value="Login">
+            <input type="submit" value="Lecturer" onclick="Redirect();">
+            <input type="submit" value="Student" onclick="Redirect();">
         </div>
         </form>
     </body>

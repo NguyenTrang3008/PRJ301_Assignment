@@ -6,7 +6,9 @@
 package Controller.authentication;
 
 import dal.AccountDBContext;
+
 import entity.Account;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -56,7 +58,7 @@ public class LoginController extends HttpServlet {
     throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-   
+
         AccountDBContext db = new AccountDBContext();
         Account account = db.getByUsernamePassword(username, password);
 
@@ -70,8 +72,8 @@ public class LoginController extends HttpServlet {
                 Cookie c_user = new Cookie("username", username);
                 Cookie c_pass = new Cookie("password", password);
                 
-                c_user.setMaxAge(3600*24*7);
-                c_pass.setMaxAge(3600*24*7);
+                c_user.setMaxAge(3600*24*3);
+                c_pass.setMaxAge(3600*24*3);
                 
                 response.addCookie(c_pass);
                 response.addCookie(c_user);
@@ -80,7 +82,7 @@ public class LoginController extends HttpServlet {
             
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
-             response.sendRedirect("lecturer/timetable?id=" + account.getUsername());
+            response.sendRedirect("http://localhost:9981/FAP_project/list");
         }
         else
         {

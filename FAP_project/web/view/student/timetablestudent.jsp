@@ -29,9 +29,8 @@
             <input type="date" name="to" value="${requestScope.to}"/><input type="submit" value="View"/></td>
                 <c:forEach items="${requestScope.dates}" var="d">
                     <td>
-                        (<fmt:formatDate pattern="E" value="${d}" />)
-                        ${d}
-            </td>
+                        <fmt:formatDate pattern="E" value="${d}" />
+                        ${d}</td>
         </c:forEach>
     </tr>
     <c:forEach items="${requestScope.slots}" var="slot">
@@ -41,8 +40,8 @@
                 <td>
                     <c:forEach items="${requestScope.lessions}" var="les">
                         <c:if test="${les.date eq d and les.slot.id eq slot.id}">
-                            ${les.group.subject.name}
-                            <a href="att?id=${les.id}">Take</a>
+                            ${les.group.name} - ${les.group.subject.name}
+                            <a href="att?id=${les.id}"></a>
                         </c:if>
                     </c:forEach>
                 </td>

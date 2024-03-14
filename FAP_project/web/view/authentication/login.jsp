@@ -42,12 +42,14 @@
             <div> Access
                 <select name="Access">
                     <option value="Lecturer">Lecturer</option>
+                    
                     <option value="Student">Student</option>
                 </select>
             </div>
 
             <input type="checkbox" name="remember" value="remember"/> Remember me. <br/>
             <input type="submit" value="Login"  />
+            <a href="att?id=${les.id}">
         </form>
     </body>
 </html>

@@ -80,7 +80,7 @@ public class LoginController extends HttpServlet {
             
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
-            response.getWriter().println("login successful!");
+             response.sendRedirect("lecturer/timetable?id=" + account.getUsername());
         }
         else
         {

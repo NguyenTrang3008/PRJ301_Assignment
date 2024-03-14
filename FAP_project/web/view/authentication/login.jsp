@@ -20,10 +20,38 @@
             }
             form {
                 text-align: center;
-                border: 10px solid #FFFFFF;
+                border: 5px solid #DF931D;
                 padding: 50px;
-                border-radius: 5px;
+                border-radius: 10px;
+                background-color: #ccc;
             }
+            form div {
+            margin-bottom: 10px;
+        }
+        form label {
+            display: inline-block;
+            width: 100px;
+            font-weight: bold;
+        }
+        form input[type="text"],
+        form input[type="password"],
+        form select {
+            width: 200px;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+        form input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
         </style>
         
         
@@ -34,22 +62,32 @@
             <div> Select campus
                 <select name="Select campus">
                     <option value="FU-Hoa Lac">FU-HoaLac</option>
-                    <option value="FU-Ho Chi Minh">FU-HoChiMinh</option>
                 </select>
             </div>
-            Username: <input type="text" name="username"/><br/>
-            Password: <input type="password" name="password"/> <br/>
-            <div> Access
-                <select name="Access">
-                    <option value="Lecturer">Lecturer</option>
-                    
-                    <option value="Student">Student</option>
-                </select>
-            </div>
-
-            <input type="checkbox" name="remember" value="remember"/> Remember me. <br/>
-            <input type="submit" value="Login"  />
-            <a href="att?id=${les.id}">
+            <div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+        </div>
+         <div>
+            <label for="role">Role:</label>
+            <select name="role" id="role">
+                <option value="lecturer">Lecturer</option>
+                
+                <option value="student">Student</option>
+            </select>
+        </div>
+        <div>
+            <label></label>
+            <input type="checkbox" name="remember" id="remember" value="remember">
+            <label for="remember">Remember me</label>
+        </div>
+        <div>
+            <input type="submit" value="Login">
+        </div>
         </form>
     </body>
 </html>

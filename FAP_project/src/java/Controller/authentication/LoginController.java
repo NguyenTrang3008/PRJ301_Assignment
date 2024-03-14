@@ -60,21 +60,32 @@ public class LoginController extends HttpServlet {
         AccountDBContext db = new AccountDBContext();
         Account account = db.getByUsernamePassword(username, password);
 
-        if (account != null) {
+        if(account != null)
+        {
+            //login success
+            
+            String remember = request.getParameter("remember");
+            if(remember!=null)
+            {
+                Cookie c_user = new Cookie("username", username);
+                Cookie c_pass = new Cookie("password", password);
+                
+                c_user.setMaxAge(3600*24*7);
+                c_pass.setMaxAge(3600*24*7);
+                
+                response.addCookie(c_pass);
+                response.addCookie(c_user);
+            }
+            
+            
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
-            
-            Cookie c_user = new Cookie("username", username);
-            Cookie c_pass = new Cookie("password", password);
-            //set time to expired = 3 days
-            c_user.setMaxAge(3600*24*3);
-            c_pass.setMaxAge(3600*24*3);
-            response.addCookie(c_pass);
-            response.addCookie(c_user);
-            
-            response.getWriter().println( "Login sucessful!");
-        } else {
-            response.getWriter().println("login failed");
+            response.getWriter().println("login successful!");
+        }
+        else
+        {
+            //login failed!
+            response.getWriter().println("login failed!");
         }
     }
 

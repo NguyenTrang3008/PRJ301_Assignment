@@ -72,6 +72,7 @@ public class TimeTableStudentController extends BaseRequiredAuthenticationContro
         req.setAttribute("lessions", lessions);
 
         req.getRequestDispatcher("/view/student/timetablestudent.jsp").forward(req, resp);
+        
     }
 
 }

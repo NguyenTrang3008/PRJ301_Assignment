@@ -79,8 +79,8 @@
             <label for="remember">Remember me</label>
         </div>
         <div>
-            <input type="submit" value="Lecturer" onclick="Redirect();">
-            <input type="submit" value="Student" onclick="Redirect();">
+            <input type="submit" value="Lecturer">
+            <input type="submit" value="Student">
         </div>
         </form>
     </body>

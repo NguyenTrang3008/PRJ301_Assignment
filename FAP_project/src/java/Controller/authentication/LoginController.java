@@ -82,7 +82,7 @@ public class LoginController extends HttpServlet {
             
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
-            response.sendRedirect("http://localhost:9981/FAP_project/list");
+            response.sendRedirect("/FAP_project/list");
         }
         else
         {

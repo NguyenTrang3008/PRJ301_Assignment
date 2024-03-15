@@ -16,7 +16,7 @@
                 padding: 10px; /* Thêm padding để tạo khoảng cách giữa khung và nội dung */
                 margin-bottom: 20px; /* Thêm margin để tạo khoảng cách giữa các khung */
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Thêm đổ bóng */
-                background-color: #ccc;
+                background-color: #ffff;
             }
             table {
                 width: 100%;

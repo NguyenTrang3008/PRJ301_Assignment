@@ -34,7 +34,7 @@
     </servlet>
     <servlet>
         <servlet-name>ListController</servlet-name>
-        <servlet-class>Controller.authentication.list</servlet-class>
+        <servlet-class>Controller.authentication.ListController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -66,6 +66,6 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListController</servlet-name>
-        <url-pattern>/list</url-pattern>
+        <url-pattern>/List</url-pattern>
     </servlet-mapping>
 </web-app>

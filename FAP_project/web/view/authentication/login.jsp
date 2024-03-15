@@ -79,8 +79,8 @@
             <label for="remember">Remember me</label>
         </div>
         <div>
-            <input type="submit" value="Lecturer">
-            <input type="submit" value="Student">
+            <input type="submit" value="Lecturer" onclick="redirectToPage('list.jsp');">
+            <input type="submit" value="Student" onclick="redirectToPage('list.jsp');">
         </div>
         </form>
     </body>

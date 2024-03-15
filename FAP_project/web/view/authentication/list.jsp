@@ -56,7 +56,7 @@
                 </tr>
                 <tr>
                     <td>Weekly Timetable (Thời khóa biểu từng tuần)</td>
-                    <td><input type="button" value="View"/></td>
+                    <td><input type="button" value="View" /></td>
                 </tr>
                 <tr>
                     <td>Attendance for Student (Điểm danh)</td>

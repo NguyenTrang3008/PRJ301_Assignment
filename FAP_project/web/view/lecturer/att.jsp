@@ -30,6 +30,15 @@
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Thêm đổ bóng */
                 background-color: #DF931D;
             }
+            .footer {
+                border: 1px solid #ccc; /* Đặt đường viền cho khung */
+                padding: 10px; /* Thêm padding để tạo khoảng cách giữa khung và nội dung */
+                margin-bottom: 20px; /* Thêm margin để tạo khoảng cách giữa các khung */
+                margin-top: 50px;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Thêm đổ bóng */
+                
+                
+            }
             </style>
     </head>
     <body>
@@ -54,10 +63,11 @@
                     <td>
                         <input type="radio" 
                                ${!a.present?"checked=\"checked\"":""}
-                               name="present${a.student.id}" value="Absent"/> Absent
+                               name="present${a.student.id}" value="no"/> <p style="color:red">Absent</p>
                         <input type="radio" 
                                ${a.present?"checked=\"checked\"":""}
-                               name="present${a.student.id}" value="Present"/>Present
+                               name="present${a.student.id}" value="yes"style="color: green"/>
+                        <p style="color:green">Present</p>
                     </td>
                     <td>
                         <input type="text" name="description${a.student.id}" value="${a.description}"/>
@@ -66,7 +76,10 @@
                 </tr>    
                 </c:forEach>
             </table>
-            <input type="submit" value="Save"/>
+            <input style="width: 100%; color: white; background-color: darkgreen; padding: 10px; font-size: 20px" type="submit" value="Save"/> 
             </form>
+            <div class="footer">
+            <p style="text-align: center">Mọi góp ý, thắc mắc xin liên hệ: Phòng dịch vụ giáo viên: Email: <b>dichvugiaovien@fe.edu.vn</b>. Điện thoại: (024)7308.13.13</p>
+        </div>
     </body>
 </html>

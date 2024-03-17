@@ -53,7 +53,7 @@
 
 
         <div style="margin-left: 30px">
-            <h4 style="">Activities for student:</h4> 
+            <h3 style="">Activities for student:</h3> 
 
             <P> NOTE: These activities do not include extra-curriculum activities, such as club activities ...</p>
             <p>

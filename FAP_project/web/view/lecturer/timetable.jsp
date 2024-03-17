@@ -55,7 +55,7 @@
 
 
         <div style="margin-left: 30px">
-            <h3 style="">Activities for teacher</h3>
+            <h3 style="">Activities for lecture</h3>
 
             <P> NOTE: These activities do not include extra-curriculum activities, such as club activities ...</p>
             <p>
@@ -91,7 +91,7 @@
                         <c:forEach items="${requestScope.lessions}" var="les">
                             <c:if test="${les.date eq d and les.slot.id eq slot.id}">
                                 ${les.group.name} - ${les.group.subject.name} <br>
-                                at ${les.room.name}
+                                at ${les.room.name} <br>
                                 <a href="att?id=${les.id}">
                                     <c:if test="${les.attended}">Edit</c:if>
                                     <c:if test="${!les.attended}">Take</c:if>

@@ -5,11 +5,12 @@
 
 package Controller.student;
 
-import Controller.authentication.BaseRequiredAuthenticationController;
+import Controller.authentication.authorization.BaseController;
 import dal.LessionDBContext;
 import dal.TimeSlotDBContext;
 import entity.Account;
 import entity.Lession;
+import entity.Role;
 import entity.TimeSlot;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,15 +26,15 @@ import util.DateTimeHelper;
  *
  * @author Dell
  */
-public class TimeTableStudentController extends BaseRequiredAuthenticationController {
+public class TimeTableStudentController extends BaseController {
    
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp, Account account,ArrayList<Role> roles) throws ServletException, IOException {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp, Account account,ArrayList<Role> roles) throws ServletException, IOException {
       
         String sid = req.getParameter("id");
         String raw_from = req.getParameter("from");

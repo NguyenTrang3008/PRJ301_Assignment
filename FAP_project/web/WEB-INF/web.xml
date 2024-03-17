@@ -36,6 +36,10 @@
         <servlet-name>ListController</servlet-name>
         <servlet-class>Controller.authentication.ListController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListStudent</servlet-name>
+        <servlet-class>Controller.student.ListStudent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -67,5 +71,9 @@
     <servlet-mapping>
         <servlet-name>ListController</servlet-name>
         <url-pattern>/List</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStudent</servlet-name>
+        <url-pattern>/ListStudent</url-pattern>
     </servlet-mapping>
 </web-app>

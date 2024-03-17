@@ -30,6 +30,19 @@
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Thêm đổ bóng */
 
             }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 10px; /* Increase padding for better spacing */
+                text-align: left;
+                border: 1px solid #ccc; /* Add border for cells */
+            }
+            th {
+                background-color: #ccc;
+                color: white;
+            }
         </style>
     </head>
     <body>
@@ -41,7 +54,7 @@
 
         <div style="margin-left: 30px">
             <h4 style="">Activities for student:</h4> 
-             
+
             <P> NOTE: These activities do not include extra-curriculum activities, such as club activities ...</p>
             <p>
                 Các phòng bắt đầu bằng AL thuộc tòa nhà Alpha. VD: AL...<br>

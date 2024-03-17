@@ -28,7 +28,7 @@
                 text-align: left;
             }
             th {
-                background-color: #ccc;
+                background-color: #7590DA;
                 color: white;
             }
             .academic-info {
@@ -51,38 +51,16 @@
             </div>
             <table border="1">
                 <tr>
-                    <th>Information Access </th>
-                    <th></th>
+                    <th><h3 style="text-align: center">Student</h3></th>
+                    <th><h3 style="text-align: center">Lecture</h3></th>
                 </tr>
                 <tr>
-                    <td>Weekly Timetable (Thời khóa biểu từng tuần)</td>
-                    <td><input type="submit" value="View"onclick="redirectToPage('timetable?id='); /></td>
+                    <td><input type="submit" name="action" value="timetablestudent" /></td>
+                    <td><input type="submit" name="action" value="timetable" /></td>
                 </tr>
-                <tr>
-                    <td>Attendance for Student (Điểm danh)</td>
-                    <td><input type="button" value="View"/></td>
-                </tr>
-                <tr>
-                    <td>University timetable (Lịch học)</td>
-                    <td><input type="button" value="View"/></td>
-                </tr>
-                <tr>
-                    <td>View exam schedule (Xem lịch thi)</td>
-                    <td><input type="button" value="View"/></td>
-                </tr>
-                <tr>
-                    <td>Attendance report (Báo cáo điểm danh)</td>
-                    <td><input type="button" value="View"/></td>
-                </tr>
-                <tr>
-                    <td>Mark report(Báo cáo điểm)</td>
-                    <td><input type="button" value="View"/></td>
-                </tr>
-                <tr>
-                    <td>Academic Transcript(Khung diểm)</td>
-                    <td><input type="button" value="View"/></td>
-                </tr>
+                
             </table>
         </form>
+        
     </body>
 </html>

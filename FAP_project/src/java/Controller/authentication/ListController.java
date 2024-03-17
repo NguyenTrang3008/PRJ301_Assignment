@@ -35,7 +35,17 @@ public class ListController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("/FAP_project/timetable?id=");
+        // login
+        String action = request.getParameter("action");
+        if ("timetablestudent".equals(action)) {
+            response.sendRedirect("/FAP_project/timetablestudent?id=");
+        } else if ("timetable".equals(action)) {
+            response.sendRedirect("/FAP_project/timetable?id=");
+        } else {
+            // Handle other actions or provide a default action
+            // For example, redirect to an error page
+            response.sendRedirect("/FAP_project/error.jsp");
+        }
     }
 
     /**

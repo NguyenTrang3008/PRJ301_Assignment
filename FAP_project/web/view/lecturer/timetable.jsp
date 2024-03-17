@@ -34,18 +34,17 @@
         </style>
     </head>
     <body>
-        <form action="timetable" method="GET">
 
-            <input type="hidden" value="${param.id}" name="id"/>
-            <div class="header">
-                <h1 style="text-align: center">FPT University Academic Portal</h1>
-            </div>
+        <div class="header">
+            <h1 style="text-align: center">FPT University Academic Portal</h1>
+        </div>
 
-        </form>
+
 
         <div style="margin-left: 30px">
-            <h3 style="">NOTE:</h3> 
-            <P> These activities do not include extra-curriculum activities, such as club activities ...</p>
+            <h3 style="">Activities for teacher</h3>
+            
+            <P> NOTE: These activities do not include extra-curriculum activities, such as club activities ...</p>
             <p>
                 Các phòng bắt đầu bằng AL thuộc tòa nhà Alpha. VD: AL...<br>
                 Các phòng bắt đầu bằng BE thuộc tòa nhà Beta. VD: BE,..<br>
@@ -56,38 +55,43 @@
             </p>
         </div>
         <table border="1px">
-            <tr class ="blue-row">
+            <form action="timetable" method="GET">
 
-                <td>From: <input type="date" name="from" value="${requestScope.from}"/> -
-                    <input type="date" name="to" value="${requestScope.to}"/><input type="submit" value="View"/></td>
-                    <c:forEach items="${requestScope.dates}" var="d">
+                <input type="hidden" value="${param.id}" name="id"/>
+                <tr class ="blue-row">
+
+                    <td>From: <input type="date" name="from" value="${requestScope.from}"/> -
+                        <input type="date" name="to" value="${requestScope.to}"/>
+                        <input type="submit" value="View"/></td>
+            </form>
+            <c:forEach items="${requestScope.dates}" var="d">
+                <td>
+                    (<fmt:formatDate pattern="E" value="${d}" />)
+                    ${d}</td>
+                </c:forEach>
+        </tr>
+        <c:forEach items="${requestScope.slots}" var="slot">
+            <tr>
+                <td>${slot.name}</td>
+                <c:forEach items="${requestScope.dates}" var="d">
                     <td>
-                        (<fmt:formatDate pattern="E" value="${d}" />)
-                        ${d}</td>
-                    </c:forEach>
+                        <c:forEach items="${requestScope.lessions}" var="les">
+                            <c:if test="${les.date eq d and les.slot.id eq slot.id}">
+                                ${les.group.name} - ${les.group.subject.name} <br>
+                                at ${les.room.name}
+                                <a href="att?id=${les.id}">
+                                    <c:if test="${les.attended}">Edit</c:if>
+                                    <c:if test="${!les.attended}">Take</c:if>
+                                    </a>
+                            </c:if>
+                        </c:forEach>
+                    </td>
+                </c:forEach>
             </tr>
-            <c:forEach items="${requestScope.slots}" var="slot">
-                <tr>
-                    <td>${slot.name}</td>
-                    <c:forEach items="${requestScope.dates}" var="d">
-                        <td>
-                            <c:forEach items="${requestScope.lessions}" var="les">
-                                <c:if test="${les.date eq d and les.slot.id eq slot.id}">
-                                    ${les.group.name} - ${les.group.subject.name} <br>
-                                    at ${les.room.name}
-                                    <a href="att?id=${les.id}">
-                                        <c:if test="${les.attended}">Edit</c:if>
-                                        <c:if test="${!les.attended}">Take</c:if>
-                                        </a>
-                                </c:if>
-                            </c:forEach>
-                        </td>
-                    </c:forEach>
-                </tr>
-            </c:forEach>
-        </table>
-        <div class="footer">
-            <p style="text-align: center">Mọi góp ý, thắc mắc xin liên hệ: Phòng dịch vụ giáo viên: Email: <b>dichvugiaovien@fe.edu.vn</b>. Điện thoại: (024)7308.13.13</p>
-        </div>
-    </body>
+        </c:forEach>
+    </table>
+    <div class="footer">
+        <p style="text-align: center">Mọi góp ý, thắc mắc xin liên hệ: Phòng dịch vụ giáo viên: Email: <b>dichvugiaovien@fe.edu.vn</b>. Điện thoại: (024)7308.13.13</p>
+    </div>
+</body>
 </html>

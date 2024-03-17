@@ -22,25 +22,25 @@
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Thêm đổ bóng */
                 background-color: #DF931D;
             }
-            
+
             .footer {
                 border: 1px solid #ccc; /* Đặt đường viền cho khung */
                 padding: 10px; /* Thêm padding để tạo khoảng cách giữa khung và nội dung */
                 margin-bottom: 20px; /* Thêm margin để tạo khoảng cách giữa các khung */
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Thêm đổ bóng */
-                
+
             }
         </style>
     </head>
     <body>
-        <form action="" method="GET">
-            <input type="hidden" value="${param.id}" name="id"/>
-            <div class="header">
+
+        <div class="header">
             <h1 style="text-align: center">FPT University Academic Portal</h1>
         </div>
-            
-        </form>
-            <div style="margin-left: 30px">
+
+
+        <div style="margin-left: 30px">
+            <h4 style="">Activities for student:</h4> 
             <h3 style="">NOTE:</h3> 
             <P> These activities do not include extra-curriculum activities, such as club activities ...</p>
             <p>
@@ -52,15 +52,19 @@
                 Little UK (LUK) thuộc tầng 5 tòa nhà Delta<br>
             </p>
         </div>
-        <table border="1px">   
-            <tr class ="blue-row">
-                <td>From: <input type="date" name="from" value="${requestScope.from}"/> -
-            <input type="date" name="to" value="${requestScope.to}"/><input type="submit" value="View"/></td>
-                <c:forEach items="${requestScope.dates}" var="d">
-                    <td>
-                        <fmt:formatDate pattern="E" value="${d}" />
-                        ${d}</td>
-        </c:forEach>
+        <table border="1px">  
+            <form action="" method="GET">
+                <input type="hidden" value="${param.id}" name="id"/>
+                <tr class ="blue-row">
+                    <td>From: <input type="date" name="from" value="${requestScope.from}"/> -
+                        <input type="date" name="to" value="${requestScope.to}"/>
+                        <input type="submit" value="View"/></td>
+            </form>
+            <c:forEach items="${requestScope.dates}" var="d">
+                <td>
+                <fmt:formatDate pattern="E" value="${d}" />
+                ${d}</td>
+            </c:forEach>
     </tr>
     <c:forEach items="${requestScope.slots}" var="slot">
         <tr>
@@ -70,7 +74,7 @@
                     <c:forEach items="${requestScope.lessions}" var="les">
                         <c:if test="${les.date eq d and les.slot.id eq slot.id}">
                             ${les.group.name} - ${les.group.subject.name} <br>
-                            at ${les.room.name}
+                            at ${les.room.name} <br>
                             <a href="att?id=${les.id}">Take</a>
                         </c:if>
                     </c:forEach> 
@@ -80,8 +84,8 @@
     </c:forEach>
 </table>
 
-        <div class="footer">
-            <p style="text-align: center">Mọi góp ý, thắc mắc xin liên hệ: Phòng dịch vụ giáo viên: Email: <b>dichvugiaovien@fe.edu.vn</b>. Điện thoại: (024)7308.13.13</p>
-        </div>
+<div class="footer">
+    <p style="text-align: center">Mọi góp ý, thắc mắc xin liên hệ: Phòng dịch vụ giáo viên: Email: <b>dichvugiaovien@fe.edu.vn</b>. Điện thoại: (024)7308.13.13</p>
+</div>
 </body>
 </html>

@@ -41,8 +41,8 @@
 
         <div style="margin-left: 30px">
             <h4 style="">Activities for student:</h4> 
-            <h3 style="">NOTE:</h3> 
-            <P> These activities do not include extra-curriculum activities, such as club activities ...</p>
+             
+            <P> NOTE: These activities do not include extra-curriculum activities, such as club activities ...</p>
             <p>
                 Các phòng bắt đầu bằng AL thuộc tòa nhà Alpha. VD: AL...<br>
                 Các phòng bắt đầu bằng BE thuộc tòa nhà Beta. VD: BE,..<br>

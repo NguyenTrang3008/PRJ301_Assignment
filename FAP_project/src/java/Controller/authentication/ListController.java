@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 package Controller.authentication;
 
 import java.io.IOException;
@@ -17,17 +16,17 @@ import jakarta.servlet.http.HttpServletResponse;
  * @author Dell
  */
 public class ListController extends HttpServlet {
-   
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-                request.getRequestDispatcher("view/authentication/list.jsp").forward(request, response);
+            throws ServletException, IOException {
+        request.getRequestDispatcher("view/authentication/list.jsp").forward(request, response);
 
-    } 
+    }
 
-    /** 
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -35,12 +34,13 @@ public class ListController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        
+            throws ServletException, IOException {
+        response.sendRedirect("/FAP_project/timetable?id=");
     }
 
-    /** 
+    /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override

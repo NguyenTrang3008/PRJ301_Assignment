@@ -38,9 +38,9 @@ public class ListController extends HttpServlet {
         // login
         String action = request.getParameter("action");
         if ("timetablestudent".equals(action)) {
-            response.sendRedirect("/FAP_project/timetablestudent?id=");
+            response.sendRedirect("/FAP_project/timetablestudent?id=HE171779");
         } else if ("timetable".equals(action)) {
-            response.sendRedirect("/FAP_project/timetable?id=");
+            response.sendRedirect("/FAP_project/timetable?id=2");
         } else {
             // Handle other actions or provide a default action
             // For example, redirect to an error page

@@ -39,6 +39,15 @@
                 width: 25%; /* Đặt chiều rộng là 1/3 của độ dài hiện tại */
                 border-radius: 10px;
             }
+            .footer {
+                border: 1px solid #ccc; /* Đặt đường viền cho khung */
+                padding: 10px; /* Thêm padding để tạo khoảng cách giữa khung và nội dung */
+                margin-bottom: 20px; /* Thêm margin để tạo khoảng cách giữa các khung */
+                margin-top: 50px;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Thêm đổ bóng */
+
+
+            }
         </style>
     </head>
     <body>
@@ -55,12 +64,38 @@
                     <th><h3 style="text-align: center">Lecture</h3></th>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="action" value="timetablestudent" /></td>
-                    <td><input type="submit" name="action" value="timetable" /></td>
+                    <td style="color: darkorange;">Weekly Timetable <input type="submit" name="action" value="timetablestudent" /></td>
+                    <td style="color: darkorange;">Weekly Timetable <input type="submit" name="action" value="timetable" /></td>
                 </tr>
-                
+                <tr>
+                    <td style="color: darkorange;">Attendance<input type="button" name= "Attendance" value="View"/></td>
+                    <td style="color: darkorange;" >Attendance<input type="button" name= "Attendance" value="View"/></td>
+                </tr>
+                <tr>
+                    <td style="color: darkorange;">University timetable <input type="button"  value="View"/></td>
+                    <td style="color: darkorange;">University timetable <input type="button"  value="View"/></td>
+                </tr>
+                <tr>
+                    <td style="color: darkorange;" >View exam schedule <input type="button" value="View"/></td>
+                    <td style="color: darkorange;">View exam schedule<input type="button" value="View"/></td>
+                </tr>
+                <tr>
+                    <td style="color: darkorange;">Attendance report <input type="button" value="View"/></td>
+                    <td style="color: darkorange;">Attendance report<input type="button" value="View"/></td>
+                </tr>
+                <tr>
+                    <td style="color: darkorange;">Mark report <input type="button" value="View"/></td>
+                    <td style="color: darkorange;">Mark report<input type="button" value="View"/></td>
+                </tr>
+                <tr>
+                    <td style="color: darkorange;">Academic Transcript<input type="button" value="View"/></td>
+                    <td style="color: darkorange;">Academic Transcript<input type="button" value="View"/></td>
+                </tr>
+
             </table>
         </form>
-        
+        <div class="footer">
+            <p style="text-align: center">Mọi góp ý, thắc mắc xin liên hệ: Phòng dịch vụ giáo viên: Email: <b>dichvugiaovien@fe.edu.vn</b>. Điện thoại: (024)7308.13.13</p>
+        </div>
     </body>
 </html>

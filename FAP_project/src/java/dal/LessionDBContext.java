@@ -268,5 +268,32 @@ public class LessionDBContext extends DBContext<Lession> {
         }
 
     }
+        public ArrayList<Lession> retakeAttendent() {
+        ArrayList<Lession> lession = new ArrayList<>();
+        try {
+            String sql = "select leid,isAttended,g.gname,l.lid,l.lname from Lession les \n"
+                    + "INNER JOIN StudentGroup g ON g.gid=les.gid\n"
+                    + "INNER JOIN Lecturer l ON l.lid= les.gid";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Lession les = new Lession();
+                StudentGroup gr = new StudentGroup();
+                Lecturer le = new Lecturer();
+                les.setId(rs.getInt("leid"));
+                les.setAttended(rs.getBoolean("isAttended"));
+                le.setName(rs.getString("lname"));
+                gr.setName(rs.getString("gname"));
+                les.setGroup(gr);
+                le.setId(rs.getInt("lid"));
+                les.setLecturer(le);
+                lession.add(les);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lession;
+    }
 
 }

@@ -31,6 +31,7 @@ public class AttendanceTakingController extends BaseRequiredAuthenticationContro
     protected void doPost(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
         int leid = Integer.parseInt(req.getParameter("id"));
         LessionDBContext db = new LessionDBContext();
+        ArrayList<Lession> less=  db.retakeAttendent();
         ArrayList<Student> students = db.getStudentsByLession(leid);
         ArrayList<Attendence> atts = new ArrayList<>();
         Lession lession = new Lession();
@@ -51,6 +52,7 @@ public class AttendanceTakingController extends BaseRequiredAuthenticationContro
     protected void doGet(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
         int leid = Integer.parseInt(req.getParameter("id"));
         LessionDBContext db = new LessionDBContext();
+        ArrayList<Lession> less=  db.retakeAttendent();
         ArrayList<Attendence> atts = db.getAttendencesByLession(leid);
         req.setAttribute("atts", atts);
         req.getRequestDispatcher("/view/lecturer/att.jsp").forward(req, resp);

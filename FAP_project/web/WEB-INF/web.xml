@@ -40,6 +40,7 @@
         <servlet-name>ListStudent</servlet-name>
         <servlet-class>Controller.student.ListStudent</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -76,4 +77,5 @@
         <servlet-name>ListStudent</servlet-name>
         <url-pattern>/ListStudent</url-pattern>
     </servlet-mapping>
+
 </web-app>

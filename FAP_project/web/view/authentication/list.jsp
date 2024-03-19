@@ -31,14 +31,7 @@
                 background-color: #7590DA;
                 color: white;
             }
-            .academic-info {
-                border: 1px solid #ccc; /* Đặt đường viền cho khung */
-                padding: 5px; /* Thêm padding để tạo khoảng cách giữa khung và nội dung */
-                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); /* Thêm đổ bóng */
-                background-color: #DF931D; /* Đặt màu nền */
-                width: 25%; /* Đặt chiều rộng là 1/3 của độ dài hiện tại */
-                border-radius: 10px;
-            }
+
             .footer {
                 border: 1px solid #ccc; /* Đặt đường viền cho khung */
                 padding: 10px; /* Thêm padding để tạo khoảng cách giữa khung và nội dung */
@@ -55,9 +48,7 @@
             <div class="header">
                 <h1 style="text-align: center">FPT University Academic Portal</h1>
             </div> 
-            <div class="academic-info">
-                <p>Academic Information</p>
-            </div>
+
             <table border="1">
                 <tr>
                     <th><h3 style="text-align: center">Student</h3></th>
